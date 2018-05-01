@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-resource.min.js"></script>
+
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
+
+ <script>window.config = <$- JSON.stringify(config) $></script>
+ <script src="todoapp.js"></script>
+ 
+</head>
+<body ng-app="todoApp">
+
+	<h1>Todo List</h1>
+
+	<div ng-controller="TodoAppCtrl">
+		<div style="padding: 10px"><button ng-click="createTodo()" type="button" class="btn btn-primary">Create</button></div>
+		<ul class="list-group">
+     <li class="list-group-item" ng-repeat="item in todos">
+      <div style="background-color: #e0e0eb; display: inline; padding: 10px; margin: 10px"> {{ $index + 1 }}. Name: {{item.name}} Description: {{item.description}} Status: {{item.status}} </div>
+      <button ng-click="editTodo()" type="button" class="btn btn-primary">Edit</button>
+      <button ng-click="markCompleted()" type="button" class="btn btn-success">Mark Completed</button>
+      <button ng-click="deleteTodo()" type="button" class="btn btn-danger">Delete</button>
+    </li>
+  </ul>
+  <div style="width: 500px; padding: 20px">
+    <form ng-if="mode === 'create' || mode === 'edit'">
+      <div style="font-size: 32px">Create</div>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Name</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Name">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Description</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Description">
+      </div>
+
+        <hr />
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

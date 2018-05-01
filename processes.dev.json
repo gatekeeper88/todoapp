@@ -1,0 +1,23 @@
+{
+  "apps": [{
+    "name": "todo-api",
+    "script": "./api/server.js",
+    "watch": true,
+    "env": {
+      "NODE_ENV": "development",
+      "TODO_API_PORT": "3000",
+      "TODO_DB_HOSTNAME": "mongodb://localhost",
+      "TODO_DB_NAME": "todo_dev"
+    }
+  }, {
+    "name": "todo-client",
+    "script": "./client/server.js",
+    "watch": true,
+    "env": {
+      "NODE_ENV": "development",
+      "TODO_CLIENT_PORT": "5000",
+      "TODO_API_HOSTNAME": "localhost",
+      "TODO_API_PORT": "3000"
+    }
+  }]
+}
